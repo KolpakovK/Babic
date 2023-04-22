@@ -1,0 +1,186 @@
+{{ if collection=="pages" }}
+    {{ lang = "en" }}
+{{ else }}
+    {{ lang = "hr" }}
+{{ /if }}
+
+{{ partial:partials/nav lang="lang" }}
+
+<!-- hero -->
+<div class="container-fluid hero" style="background-image: url('{{ hero_banner }}');">
+    <div class="row align-items-center" style="min-height: 700px;">
+        <h1 class="text-center display-1 text-white  has-anim rotate-anim">
+            {{ hero_title }}
+        </h1>
+    </div>
+</div>
+
+<!-- about cards -->
+<div class="container-fluid container-border">
+    <div class="row">
+        {{ card_index = 0 }}
+        {{ cards_list }}
+        
+        <div class="col-sm-12 col-md p-5 card-border has-anim fade-in-anim {{ 'anim-delay-' + card_index + '00' }}">
+            <p class="fw-light text-primary">{{ number }}</p>
+            <h2 class="display-4">{{ title }}</h2>
+            <p class="text-secondary">{{ content }}</p>
+            {{ if link=="true "}}
+            <a href="{{ link_path }}">{{ link_text }}</a>
+            {{ /if }}
+        </div>
+        
+        {{ card_index += 1 }}
+        {{ /cards_list }}
+    </div>
+</div>
+
+<!-- about us -->
+<div class="bg-primary bg-opacity-10 plants-on-sides">
+    <div class="container">
+        <div class="row py-7">
+            <div class="col-sm-12 offset-sm-0 col-md-8 offset-md-2 d-flex flex-column align-items-center">
+                <p class="text-center text-primary mb-0 has-anim fade-in-anim">
+                    {{ about_us_subtitle }}
+                </p>
+                <h2 class="display-4 text-center mt-0 mb-4 has-anim rotate-anim">{{ about_us_title }}</h2>
+                <p class="text-center text-secondary has-anim fade-in-anim anim-delay-100">
+                    {{ about_us_content }}
+                </p>
+                {{ if about_us_quote_toggle }}
+                <div class="qoute mt-4 has-anim fade-in-anim anim-delay-200">
+                    <p class="fst-italic">{{ about_us_quote_content }}</p>
+                    <p class="text-secondary small">{{ about_us_quote_author }}</p>
+                </div>
+                {{ /if }}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- services -->
+<div class="container my-7">
+    <div class="row mb-6">
+        <div class="col">
+            <p class="text-primary mb-0 has-anim fade-in-anim">{{ services_subtitle }}</p>
+            <h2 class="display-4 mt-0 mb-4 has-anim rotate-anim anim-delay-200">{{ services_title }}</h2>
+        </div>
+    </div>
+    
+    {{ card_service = 0 }}
+    {{ services_list }}
+    
+    {{ if card_service==0 }}
+    <div class="row">
+        {{ /if }}
+        
+        <div class="col-sm-12 col-md d-flex has-anim fade-in-anim {{ 'anim-delay-' + card_service + '00' }}" style="gap: 16px;">
+            <a class="icon text-primary p-1 fs-3">{{ icon }}</a>
+            <div class="content">
+                <p class="fs-5">{{ title }}</p>
+                <p class="text-secondary">{{ content }}</p>
+            </div>
+        </div>
+        
+        {{ card_service += 1 }}
+        
+        {{ if card_service==3 }}
+    </div>
+    {{ card_service=0 }}
+    <hr class="mb-3 d-none d-md-block">
+    {{ elseif last}}
+</div>
+{{ /if }}
+
+{{ /services_list }}
+</div>
+
+<!-- testimotionals -->
+<div class="bg-secondary bg-opacity-10 plants-on-sides plants-2">
+    <div class="container">
+        <div class="row py-7 has-anim fade-in-anim">
+            <div class="col-sm-12 offset-sm-0 col-md-10 offset-md-1 d-flex flex-column align-items-center ]">
+                <p class="text-center text-primary mb-0">
+                    {{ testimonials_subtitle }}
+                </p>
+                <div class="carousel-container mt-4">
+                    <div class="carousel-content">
+                        {{ testimonials_list }}
+                        <div class="carousel-item">
+                            <!-- avatar -->
+                            {{ if portrait }}
+                            <img src="{{ portrait }}" height="80px" class="rounded-circle">
+                            {{ /if }}
+                            <p class="fs-4 fst-italic text-center mt-3 mb-5 quote-background">
+                                {{ content }}
+                            </p>
+                            <p class="display-6 text-center mb-0">{{ author }}</p>
+                            <p class="text-center text-secondary">{{ position }}</p>
+                        </div>
+                        {{ /testimonials_list }}
+                    </div>
+                    <div class="carousel-footer d-flex mt-4 justify-content-center">
+                        <div class="d-flex align-items-center" style="gap: 8px">
+                            <a href="#0" class="btn btn-outline-dark prev">←</a>
+                            <a href="#0" class="btn btn-outline-dark next">→</a>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+{{ if lang=='en' }}
+    {{ blog_to_display = "blog_articles" }}
+{{ else }}
+    {{ blog_to_display = "blog_articles_hr" }}
+{{ /if }}
+
+<!-- blog -->
+<div class="container-fluid">
+    <div class="row pt-7 pb-5">
+        <dov class="col">
+            <p class="text-center text-primary mb-0 has-anim fade-in-anim">
+                {{ blog_subtitle }}
+            </p>
+            <h2 class="display-4 mt-0 mb-4 text-center has-anim rotate-anim">{{ blog_title }}</h2>
+        </dov>
+    </div>
+</div>
+<div class="container-fluid container-border">
+    <div class="row">
+            {{ collection from='{{blog_to_display}}' paginate="3" as="posts" }}
+            
+            {{ if no_results }}
+            <p>Aww, there are no results.</p>
+            {{ /if }}
+            {{ post_index = 0 }}
+            
+            {{ posts }}
+            <div class="col-md p-5 card-border has-anim fade-in-anim {{ 'anim-delay-' + post_index + '00' }}">
+                <p class="fw-light text-primary">{ {{ date }} }</p>
+                <h2 class="display-5">{{ title }}</h2>
+                <p class="text-secondary"> {{ article_content | truncate(90, '...') }}</p>
+                
+                <a href="{{ url }}">{{ blog_read_more_button }}</a>
+                
+                {{ post_index += 1 }}
+            </div>
+            {{ /posts }}
+            
+            {{ /collection }}
+    </div>
+</div>
+<div class="container mt-4 mb-7">
+    <div class="row justify-content-center has-anim fade-in-anim">
+        <a href="{{ blog_read_all_link }}" class="btn btn-outline-dark" style="width: fit-content;">{{ blog_read_all }}</a>
+    </div>
+</div>
+
+{{ partial:partials/contactus }}
+
+{{ partial:partials/footer lang="lang" }}
+
+{{ partial:partials/search lang="lang" }}

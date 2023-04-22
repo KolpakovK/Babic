@@ -1,0 +1,254 @@
+@font-face {
+    font-family: "iconmoon";
+    src: url(icomoon.woff);
+}
+
+p,a,span{
+    font-feature-settings: 'pnum' on, 'lnum' on;
+}
+
+.icon{
+    font-family: "iconmoon" !important;
+    font-size: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    line-height: 100%;
+    
+    transition-duration: 300ms;
+}
+
+.header{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    transition-duration: 300ms;
+}
+
+.header.is-scrolled{
+    background: var(--bs-primary) !important;
+}
+
+.icon:hover{
+    opacity:0.8;
+}
+
+.header-nav{
+    display: flex;
+    gap: 4px;
+}
+
+.header-nav a{
+    text-decoration: none !important;
+    padding: 8px 16px;
+    color: var(--bs-gray-200);
+    text-transform: uppercase;
+    transition-duration: 300ms;
+}
+
+.header-nav a.is-active{
+    font-weight: 600;
+    color: var(--bs-white);
+}
+
+.header-nav a:hover{
+    color: var(--bs-gray-400);
+}
+
+.language-switch .dropdown-toggle{
+    text-decoration: none !important;
+    padding: 8px 16px;
+    color: var(--bs-gray-200);
+    text-transform: uppercase;
+    transition-duration: 300ms;
+}
+
+.hero{
+    background-size: cover;
+    background-position: center;
+}
+
+.container-border{
+    border-top: var(--bs-dark) 1px solid;
+    border-bottom: var(--bs-dark) 1px solid;
+}
+
+.card-border{
+    border-right: var(--bs-dark) 1px solid;
+    align-self: stretch !important;
+}
+
+.qoute{
+    width: fit-content;
+}
+
+.qoute > *{
+    padding-left: 16px;
+}
+
+.qoute > .fst-italic{
+    border-left: 1px solid var(--bs-primary);
+    margin-bottom: 0;
+}
+
+.plants-on-sides{
+    position: relative;
+}
+
+.plants-on-sides>div{
+    z-index: 5;
+}
+
+.plants-on-sides:before{
+    content: " ";
+    display: block;
+    background-image: url('../source/Leftplants.png');
+    background-position: center right;
+    background-size: cover;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    height: 100%;
+    width: 200px;
+}
+
+.plants-on-sides.plants-2:before{
+    background-image: url('../source/LeftPlants2.png');
+    opacity: 0.2;
+}
+
+.plants-on-sides:after{
+    content: " ";
+    display: block;
+    background-image: url('../source/Rightplants.png');
+    background-position: center left;
+    background-size: cover;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    height: 100%;
+    width: 200px;
+}
+
+.plants-on-sides.plants-2:after{
+    background-image: url('../source/RightPlants2.png');
+    opacity: 0.2;
+}
+
+.carousel-container{
+    width: 100%;
+    min-height: 400px
+}
+
+.carousel-content{
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-item{
+    position: absolute;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+
+    transition: left 1s;
+}
+
+.quote-background{
+    position: relative;
+}
+
+.quote-background::before,.quote-background::after{
+    content: " ";
+    display: block;
+    background-image: url('../source/quote.png');
+    position: absolute;
+    width: 80px;
+    height: 50px;
+}
+
+.quote-background::after{
+    right: 0;
+    bottom: 0;
+    transform: translate(0,50%);
+}
+
+.quote-background::before{
+    left: 0;
+    top: 0;
+    transform: translate(0,-50%);
+}
+
+.burger{
+    display: none;
+}
+
+@media screen and (max-width:800px) {
+    .plants-on-sides:after{
+        display: none;
+    }
+
+    .plants-on-sides:before{
+        display: none;
+    }
+
+    .header > div{
+        display: flex;
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding-right: 32px;
+        position: relative;
+    }
+
+    .header.active{
+        background-color: var(--bs-primary);
+        height: 100vh;
+        gap: 16px;
+    }
+
+    .header.active > div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        height: 100%;
+
+        padding-right: 0px;
+    }
+
+    .burger{
+        display: block;
+        font-size: 24px;
+        color: var(--bs-white);
+        line-height: 100%;
+        position: absolute;
+        top: 50%;
+        right: 8px;
+        transform: translateY(-75%);
+    }
+
+    .header.active .burger{
+        top: 24px;
+        transform: translateY(0);
+    }
+
+    .header > div > div {
+        width: fit-content !important;
+    }
+
+    .header-nav{
+        display: none;
+    }
+
+    .header-nav.active{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}

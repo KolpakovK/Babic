@@ -1,0 +1,17 @@
+<!-- Modal -->
+<div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content bg-transparent border-0">
+            <div class="modal-body text-white d-flex align-items-center justify-content-between">
+                
+                <form action="search" class="d-flex" style="width: fill;">
+                    <input type="text" name="q" class="form-control" placeholder="Search request" style="width: fill;">
+                    <input type="text" name="lang" style="display: none;" value="{{ lang }}">
+                    <button type="submit" class="btn btn-primary ms-2">Find</button>
+                </form>
+                
+                <button type="button" class="close btn btn-light" data-dismiss="modal" aria-label="Close">&times;</button>
+            </div>
+        </div>
+    </div>
+</div>

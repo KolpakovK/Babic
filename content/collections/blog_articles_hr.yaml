@@ -1,0 +1,14 @@
+title: 'Blog articles HR'
+template: blog_articles/show
+layout: layout
+mount: b983c96b-8b40-4159-9897-317ab9085260
+revisions: false
+route: '/{mount}/{slug}/hr'
+sort_dir: asc
+date_behavior:
+  past: public
+  future: private
+preview_targets:
+  -
+    label: Entry
+    url: '{permalink}'

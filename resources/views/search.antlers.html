@@ -1,0 +1,28 @@
+{{ lang = {{ get:lang }} }}
+{{ partial:partials/nav lang="lang" blue_bg="true" }}
+
+<!-- hero -->
+<div class="container-fluid hero">
+    <div class="row align-items-center" style="min-height: 400px;">
+        <h1 class="text-center display-1 text-dark has-anim rotate-anim">
+            {{ if lang=="en" }} Search results {{ else }} Rezultati pretraživanja {{ /if }}
+        </h1>
+    </div>
+</div>
+
+<div class="container mb-7">
+    <div class="row">
+        {{ search:results }}
+        <div class="col-md-12 mb-4">
+            <a href="{{ url }}">
+                <h4 class="display-5">{{ title }}</h4>
+            </a>
+            <p class="text-subtitle">{{ (article_content ?? content) | truncate(140) }}</p>
+        </div>
+        {{ /search:results }}
+    </div>
+</div>
+
+{{ partial:partials/footer lang="lang" }}
+
+{{ partial:partials/search }}

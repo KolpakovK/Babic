@@ -1,0 +1,15 @@
+title: 'Blog articles'
+template: blog_articles/show
+layout: layout
+mount: 90374d77-b2c0-4d04-92f9-d60d4ec15de3
+revisions: false
+route: '/{mount}/{slug}'
+date: true
+sort_dir: desc
+date_behavior:
+  past: public
+  future: private
+preview_targets:
+  -
+    label: Entry
+    url: '{permalink}'

@@ -1,0 +1,32 @@
+<!-- nav -->
+<div class="container-fluid footer" style="background-color: var(--bs-primary-text-emphasis);">
+    <div class="row py-3 align-items-center">
+        <!-- logo -->
+        <div class="col-sm-12 col-md-1">
+            <img src="{{ brand:logo }}" alt="Logo" width="64px">
+        </div>
+        <!-- buttons -->
+        <div class="d-none d-md-block col-md-5 header-nav">
+            {{ if lang=="en" }}
+                {{ nav include_home="true"}}
+                <a href="{{ url }}" {{ if is_current }} class="is-active" {{ /if }}>{{ title }}</a>
+                {{ /nav }}
+            {{ else }}
+                {{ nav:collection:pageshr include_home="true"}}
+                <a href="{{ url }}" {{ if is_current }} class="is-active" {{ /if }}>{{ title }}</a>
+                {{ /nav:collection:pageshr }}
+            {{ /if }}
+        </div>
+        
+        <!-- search and language -->
+        <div class="col-md-3 offset-md-3 d-flex justify-content-end align-items-center">
+            <p class="text-white fw-medium m-0">{{ contact_data:address }} / {{ contact_data:mobile }} / {{ contact_data:email }}</p>
+        </div>
+    </div>
+    <hr style="border-color: var(--bs-white);">
+    <div class="row py-2 align-items-center">
+        <div class="col">
+            <p class="text-white text-center">{{ global_main:copyright }}</p>
+        </div>
+    </div>
+</div>

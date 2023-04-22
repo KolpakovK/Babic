@@ -1,0 +1,10 @@
+title: 'Contact data'
+data:
+  address_filed_label: Address
+  mobile_filed_label: Mobile
+  address: 'Ilica 5/II, Zagreb'
+  mobile: '095 80 37 553'
+  email_filed_label: Mail
+  email: lawoffice.babic@marijanababic.com
+  background:
+    - contact-bg.jpg

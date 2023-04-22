@@ -1,0 +1,131 @@
+
+<!-- contact us -->
+<div style="background-image: url('{{ contact_data:background }}'); background-size: cover; background-position: center;">
+    <div class="container">
+        <div class="row pt-7">
+            <div class="col-md offset-md-1">
+                <h2 class="display-4 mt-0 mb-4 has-anim rotate-anim">{{contact_us_title}}</h2>
+            </div>
+        </div>
+        
+        {{ if lang=='en' }}
+
+        <div class="row pb-7">
+            <div class="col-md-5 offset-md-1  has-anim fade-in-anim">
+                
+                {{ form:contact_us }}
+                
+                <div class="row mb-3">
+                    <div class="col">
+                        <input type="text" name="name" class="form-control" placeholder="First name" aria-label="First name" required>
+                        <div class="invalid-feedback">
+                            Please provide a valid name.
+                        </div>
+                    </div>
+                    <div class="col">
+                        <input type="email" name="email" class="form-control" placeholder="Email" aria-label="Email" required>
+                        <div class="invalid-feedback">
+                            Please provide a valid mail.
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col">
+                        <input type="text" name="subject" class="form-control" placeholder="Subject" aria-label="Subject">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col">
+                        <textarea class="form-control" name="message" placeholder="Message" aria-label="Message" rows="4" required></textarea>
+                        <div class="invalid-feedback">
+                            Please provide a valid message.
+                        </div>
+                    </div>
+                </div>
+
+                <input type="text" class="d-none" name="{{ honeypot ?? 'honeypot' }}">
+                
+                <button type="submit" class="btn btn-primary">Submit</button>
+                
+                {{ /form:contact_us }}
+                
+            </div>
+
+            <div class="col-md-4 offset-md-1 has-anim fade-in-anim anim-delay-200">
+                <div class="qoute mt-4">
+                    <p class="fst-italic fst-normal fw-medium">{{ contact_data:address }}</p>
+                    <p class="text-secondary small">{{ contact_data:address_filed_label }}</p>
+                </div>
+                <div class="qoute mt-4">
+                    <p class="fst-italic fst-normal fw-medium">{{ contact_data:mobile }}</p>
+                    <p class="text-secondary small">{{ contact_data:mobile_filed_label }}</p>
+                </div>
+                <div class="qoute mt-4">
+                    <p class="fst-italic fst-normal fw-medium">{{ contact_data:email }}</p>
+                    <p class="text-secondary small">{{ contact_data:email_filed_label }}</p>
+                </div>
+            </div>
+        </div>
+
+        {{ else }}
+
+        <div class="row pb-7">
+            <div class="col-md-5 offset-md-1 has-anim fade-in-anim">
+                
+                {{ form:contact_us }}
+                
+                <div class="row mb-3">
+                    <div class="col">
+                        <input type="text" name="name" class="form-control" placeholder="{{ field_name }}" aria-label="{{ field_name }}" required>
+                        <div class="invalid-feedback">
+                            {{ error_name }}
+                        </div>
+                    </div>
+                    <div class="col">
+                        <input type="email" name="email" class="form-control" placeholder="{{ field_mail }}" aria-label="{{ field_mail }}" required>
+                        <div class="invalid-feedback">
+                            {{ error_mail }}
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col">
+                        <input type="text" name="subject" class="form-control" placeholder="{{ field_subject }}" aria-label="{{ field_subject }}">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col">
+                        <textarea class="form-control" name="message" placeholder="{{ field_message }}" aria-label="{{ field_message }}" rows="4" required></textarea>
+                        <div class="invalid-feedback">
+                            {{ error_message }}
+                        </div>
+                    </div>
+                </div>
+
+                <input type="text" class="d-none" name="{{ honeypot ?? 'honeypot' }}">
+                
+                <button type="submit" class="btn btn-primary">{{ submit_button_text }}</button>
+                
+                {{ /form:contact_us }}
+                
+            </div>
+
+            <div class="col-md-4 offset-md-1 has-anim fade-in-anim anim-delay-200">
+                <div class="qoute mt-4">
+                    <p class="fst-italic fst-normal fw-medium">{{ contact_data:address }}</p>
+                    <p class="text-secondary small">{{ address_localisation }}</p>
+                </div>
+                <div class="qoute mt-4">
+                    <p class="fst-italic fst-normal fw-medium">{{ contact_data:mobile }}</p>
+                    <p class="text-secondary small">{{ mobile_localisation }}</p>
+                </div>
+                <div class="qoute mt-4">
+                    <p class="fst-italic fst-normal fw-medium">{{ contact_data:email }}</p>
+                    <p class="text-secondary small">{{ mail_localisation }}</p>
+                </div>
+            </div>
+        </div>
+
+        {{ /if }}
+    </div>
+</div>

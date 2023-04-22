@@ -1,0 +1,104 @@
+{{ if collection=="pages" }}
+{{ lang = "en" }}
+{{ else }}
+{{ lang = "hr" }}
+{{ /if }}
+
+{{ partial:partials/nav lang="lang" }}
+
+<!-- hero -->
+<div class="container-fluid hero" style="background-image: url('{{ hero_banner }}');">
+    <div class="row align-items-center py-10">
+        <div class="col-md-6 offset-md-3">
+            <h1 class="text-center display-1 text-white  has-anim rotate-anim">
+                {{ hero_title }}
+            </h1>
+        </div>
+    </div>
+</div>
+
+{{ if lang=='en' }}
+    {{ blog_to_display = "blog_articles" }}
+{{ else }}
+    {{ blog_to_display = "blog_articles_hr" }}
+{{ /if }}
+
+<div class="container my-7">
+    <div class="row mb-4">
+        <div class="col">
+            <p class="text-primary has-anim fade-in-anim">
+                Recent post
+            </p>
+        </div>
+    </div>
+    {{ collection from='{{blog_to_display}}' limit="1"}}
+    <div class="row align-items-center has-anim fade-in-anim anim-delay-200">
+        <div class="col-md-6">
+            <img src="{{ featured_image }}" alt="Post photo" width="100%">
+        </div>
+        <div class="col-md-4 offset-md-1">
+            <p class="fw-light text-primary">{ {{ date }} }</p>
+            <h2 class="display-5">{{ title }}</h2>
+            <p class="text-secondary"> {{ article_content | truncate(90, '...') }}</p>
+            
+            <a href="{{ url }}">Read more</a>
+        </div>
+    </div>
+    {{ /collection }}
+</div>
+
+<div class="container mt-7">
+    <div class="row mb-4 has-anim fade-in-anim">
+        <div class="col">
+            <p class="text-primary">
+                All posts
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid container-border">
+    <div class="row align-items-center">
+        
+        {{ collection from='{{blog_to_display}}' paginate="10" as="posts" }}
+        
+        {{ if no_results }}
+        <p>Aww, there are no results.</p>
+        {{ /if }}
+        
+        {{ post_index = 0 }}
+
+        {{ posts }}
+        <div class="col-md-4 card-border py-4 has-anim fade-in-anim anim-delay-{{ post_index }}00" style="border-bottom: 1px solid var(--bs-dark);">
+            {{ if featured_image }} <img src="{{ featured_image }}" alt="Post photo" width="100%" class="mb-4"> {{ /if }}
+            <p class="fw-light text-primary">{ {{ date }} }</p>
+            <h2 class="display-5">{{ title }}</h2>
+            <p class="text-secondary"> {{ article_content | truncate(90, '...') }}</p>
+            <a href="{{ url }}">Read more</a>
+        </div>
+        {{ post_index += 1 }} {{ if post_index>=2 }} {{ post_index = 0}} {{ /if }}
+        {{ /posts }}
+        
+        {{ paginate }}
+
+        <div class="d-flex justify-content-between align-items-center py-4">
+            <a href="{{ prev_page }}" class="btn btn-outline-dark has-anim fade-in-anim">←</a>
+            
+            <p class="text-center text-secondary m-0 has-anim fade-in-anim">
+            {{ current_page }} of {{ total_pages }} pages
+            </p>
+            
+            <a href="{{ next_page }}" class="btn btn-outline-dark has-anim fade-in-anim">→</a>
+        </div>
+        {{ /paginate }}
+        
+        {{ /collection }}
+        
+        
+    </div>
+</div>
+
+
+{{ partial:partials/contactus }}
+
+{{ partial:partials/footer lang="lang" }}

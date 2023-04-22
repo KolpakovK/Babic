@@ -1,0 +1,40 @@
+{{ if collection=="blog_articles" }}
+{{ lang = "en" }}
+{{ else }}
+{{ lang = "hr" }}
+{{ /if }}
+
+{{ partial:partials/nav lang="lang" blue_bg="true" }}
+
+<!-- hero -->
+<div class="container-fluid">
+    <div class="row align-items-center pt-10 pb-6">
+        <div class="col-md-6 offset-md-3">
+            <h1 class="text-center display-1 has-anim rotate-anim">
+                {{ title }}
+            </h1>
+        </div>
+    </div>
+</div>
+
+<div class="container pb-6" style="min-height: 50vh;">
+    <div class="row">
+        <div class="col-md-8 offset-md-2 article_content">
+            {{ article_content }}
+        </div>
+    </div>
+</div>
+
+<style>
+    .article_content img{
+        width: 100%;
+    }
+
+    .article_content blockquote{
+        padding: 16px;
+        background-color: var(--bs-primary);
+        color: var(--bs-white);
+    }
+</style>
+
+{{ partial:partials/footer lang="lang" }}

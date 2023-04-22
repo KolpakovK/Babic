@@ -1,0 +1,455 @@
+title: Home
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: title
+        field:
+          type: text
+          required: true
+          validate:
+            - required
+      -
+        handle: template
+        field:
+          type: template
+          display: Template
+          localizable: true
+  sidebar:
+    display: Sidebar
+    fields:
+      -
+        handle: slug
+        field:
+          type: slug
+          localizable: true
+      -
+        handle: parent
+        field:
+          type: entries
+          collections:
+            - pages
+          max_items: 1
+          listable: false
+          localizable: true
+  hero:
+    display: Hero
+    fields:
+      -
+        handle: hero_title
+        field:
+          input_type: text
+          antlers: false
+          display: 'Hero title'
+          type: text
+          icon: text
+          instructions: 'Please, fill out the headline that will be displayed on the main page'
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+      -
+        handle: hero_banner
+        field:
+          mode: list
+          container: assets
+          restrict: false
+          allow_uploads: true
+          show_filename: true
+          max_files: 1
+          display: 'Hero banner'
+          type: assets
+          icon: assets
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+  about_us_cards:
+    display: 'About us cards'
+    fields:
+      -
+        handle: cards_list
+        field:
+          collapse: false
+          previews: true
+          sets:
+            card:
+              display: Card
+              fields:
+                -
+                  handle: number
+                  field:
+                    input_type: text
+                    antlers: false
+                    display: Number
+                    type: text
+                    icon: text
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    width: 25
+                -
+                  handle: title
+                  field:
+                    input_type: text
+                    antlers: false
+                    display: Title
+                    type: text
+                    icon: text
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    width: 75
+                -
+                  handle: content
+                  field:
+                    antlers: false
+                    display: Content
+                    type: textarea
+                    icon: textarea
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                -
+                  handle: link
+                  field:
+                    default: false
+                    display: Link
+                    type: toggle
+                    icon: toggle
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    width: 33
+                -
+                  handle: link_text
+                  field:
+                    input_type: text
+                    antlers: false
+                    display: 'Link text'
+                    type: text
+                    icon: text
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    if:
+                      link: 'equals true'
+                    width: 33
+                -
+                  handle: link_path
+                  field:
+                    display: 'Link path'
+                    type: link
+                    icon: link
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    if:
+                      link: 'equals true'
+                    width: 33
+          display: 'Cards list'
+          type: replicator
+          icon: replicator
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+  about_us:
+    display: 'About us'
+    fields:
+      -
+        handle: about_us_subtitle
+        field:
+          input_type: text
+          antlers: false
+          default: 'About us'
+          display: 'About us subtitle'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+      -
+        handle: about_us_title
+        field:
+          input_type: text
+          antlers: false
+          display: 'About us title'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+      -
+        handle: about_us_content
+        field:
+          antlers: false
+          display: 'About us content'
+          type: textarea
+          icon: textarea
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+      -
+        handle: about_us_quote_toggle
+        field:
+          default: false
+          display: 'About us quote toggle'
+          type: toggle
+          icon: toggle
+          width: 33
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+      -
+        handle: about_us_quote_content
+        field:
+          antlers: false
+          display: 'About us quote content'
+          type: textarea
+          icon: textarea
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          if:
+            about_us_quote_toggle: 'equals true'
+          width: 66
+      -
+        handle: about_us_quote_author
+        field:
+          input_type: text
+          antlers: false
+          display: 'About us quote author'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          if:
+            about_us_quote_toggle: 'equals true'
+  services:
+    display: Services
+    fields:
+      -
+        handle: services_subtitle
+        field:
+          input_type: text
+          antlers: false
+          default: Services
+          display: 'Services subtitle'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+      -
+        handle: services_title
+        field:
+          input_type: text
+          antlers: false
+          display: 'Services title'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+      -
+        handle: services_list
+        field:
+          collapse: false
+          previews: true
+          sets:
+            service:
+              display: Service
+              fields:
+                -
+                  handle: icon
+                  field:
+                    input_type: text
+                    antlers: false
+                    display: Icon
+                    type: text
+                    icon: text
+                    width: 25
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                -
+                  handle: title
+                  field:
+                    input_type: text
+                    antlers: false
+                    display: Title
+                    type: text
+                    icon: text
+                    width: 75
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                -
+                  handle: content
+                  field:
+                    antlers: false
+                    display: Content
+                    type: textarea
+                    icon: textarea
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+          display: 'Services list'
+          type: replicator
+          icon: replicator
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+  testimonials:
+    display: Testimonials
+    fields:
+      -
+        handle: testimonials_list
+        field:
+          collapse: false
+          previews: true
+          sets:
+            testimonial:
+              display: Testimonial
+              fields:
+                -
+                  handle: content
+                  field:
+                    antlers: false
+                    display: Content
+                    type: textarea
+                    icon: textarea
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                -
+                  handle: author
+                  field:
+                    input_type: text
+                    antlers: false
+                    display: Author
+                    type: text
+                    icon: text
+                    width: 33
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                -
+                  handle: position
+                  field:
+                    input_type: text
+                    antlers: false
+                    display: Position
+                    type: text
+                    icon: text
+                    width: 33
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                -
+                  handle: portrait
+                  field:
+                    mode: list
+                    container: assets
+                    restrict: false
+                    allow_uploads: true
+                    show_filename: true
+                    max_files: 1
+                    display: Portrait
+                    type: assets
+                    icon: assets
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+          display: 'Testimonials list'
+          type: replicator
+          icon: replicator
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+      -
+        handle: testimonials_subtitle
+        field:
+          input_type: text
+          antlers: false
+          default: 'Clients’ testimonials'
+          display: 'Testimonials subtitle'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+  blog:
+    display: Blog
+    fields:
+      -
+        handle: blog_subtitle
+        field:
+          input_type: text
+          antlers: false
+          default: Blog
+          display: 'Blog subtitle'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+      -
+        handle: blog_title
+        field:
+          input_type: text
+          antlers: false
+          default: 'The Magazine'
+          display: 'Blog title'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+      -
+        handle: blog_read_more_button
+        field:
+          input_type: text
+          antlers: false
+          display: 'Blog read more button'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+      -
+        handle: blog_read_all
+        field:
+          input_type: text
+          antlers: false
+          default: 'Read all articles'
+          display: 'Blog read all'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+      -
+        handle: blog_read_all_link
+        field:
+          display: 'Blog read all link'
+          type: link
+          icon: link
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+  contact_us:
+    display: 'Contact us'
+    fields:
+      -
+        handle: contact_us_title
+        field:
+          input_type: text
+          antlers: false
+          default: 'Contact Us'
+          display: 'Contact us title'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          visibility: visible

@@ -1,0 +1,84 @@
+title: Contact
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: title
+        field:
+          type: text
+          required: true
+          validate:
+            - required
+      -
+        handle: template
+        field:
+          hide_partials: true
+          blueprint: false
+          display: Template
+          type: template
+          icon: template
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+  sidebar:
+    display: Sidebar
+    fields:
+      -
+        handle: slug
+        field:
+          type: slug
+          localizable: true
+      -
+        handle: parent
+        field:
+          type: entries
+          collections:
+            - pages
+          max_items: 1
+          listable: false
+          localizable: true
+  hero:
+    display: Hero
+    fields:
+      -
+        handle: hero_title
+        field:
+          input_type: text
+          antlers: false
+          display: 'Hero title'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+      -
+        handle: hero_banner
+        field:
+          mode: list
+          container: assets
+          restrict: false
+          allow_uploads: true
+          show_filename: true
+          max_files: 1
+          display: 'Hero banner'
+          type: assets
+          icon: assets
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+  contact_us:
+    display: 'Contact us'
+    fields:
+      -
+        handle: contact_us_title
+        field:
+          input_type: text
+          antlers: false
+          default: 'Contact us'
+          display: 'Contact us title'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          visibility: visible

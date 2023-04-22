@@ -1,0 +1,92 @@
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: address_filed_label
+        field:
+          input_type: text
+          antlers: false
+          display: 'Address filed label'
+          type: text
+          icon: text
+          width: 50
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+      -
+        handle: mobile_filed_label
+        field:
+          input_type: text
+          antlers: false
+          display: 'Mobile filed label'
+          type: text
+          icon: text
+          width: 50
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+      -
+        handle: address
+        field:
+          input_type: text
+          antlers: false
+          display: Address
+          type: text
+          icon: text
+          width: 50
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+      -
+        handle: mobile
+        field:
+          input_type: text
+          antlers: false
+          display: Mobile
+          type: text
+          icon: text
+          width: 50
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+      -
+        handle: email_filed_label
+        field:
+          input_type: text
+          antlers: false
+          display: 'Email filed label'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+      -
+        handle: email
+        field:
+          input_type: email
+          antlers: false
+          display: Email
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+  design:
+    display: Design
+    fields:
+      -
+        handle: background
+        field:
+          mode: list
+          container: assets
+          restrict: false
+          allow_uploads: true
+          show_filename: true
+          display: Background
+          type: assets
+          icon: assets
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          max_files: 1

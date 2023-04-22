@@ -1,0 +1,59 @@
+<!-- nav -->
+<div class="container-fluid header {{ if blue_bg }} bg-primary {{ /if }}">
+    <div class="row py-3 align-items-center">
+
+        <div class="burger">
+            ⡆
+        </div>
+
+        <!-- logo -->
+        <div class="col-md-1">
+            <a href="{{ site:url }}">
+                <img src="{{ brand:logo }}" alt="Logo" width="64px">
+            </a>
+        </div>
+        <!-- buttons -->
+        <div class="col-md-5 header-nav">
+
+            {{ if lang=="en" }}
+                {{ nav include_home="true"}}
+                <a href="{{ url }}" {{ if is_current }} class="is-active" {{ /if }}>{{ title }}</a>
+                {{ /nav }}
+            {{ else }}
+                {{ nav:collection:pageshr include_home="true"}}
+                <a href="{{ url }}" {{ if is_current }} class="is-active" {{ /if }}>{{ title }}</a>
+                {{ /nav:collection:pageshr }}
+            {{ /if }}
+        </div>
+        
+        <!-- search and language -->
+        <div class="col-sm-12 col-md-3 offset-md-3 d-flex justify-content-end align-items-center">
+            <!-- search -->
+            <a href="" class="icon text-white p-1" data-toggle="modal" data-target="#searchModal"></a>
+            
+            {{ if lang=="en" }}
+            <!-- dropdown -->
+            <div class="dropdown ms-3 language-switch">
+                <a class="dropdown-toggle" href="#" role="button" id="languageList" data-toggle="dropdown">
+                    English
+                </a>
+                
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="languageList">
+                    <a class="dropdown-item" href="/hr">Hrvatski</a>
+                </div>
+            </div>
+            {{ else }}
+            <div class="dropdown ms-3 language-switch">
+                <a class="dropdown-toggle" href="#" role="button" id="languageList" data-toggle="dropdown">
+                    Hrvatski
+                </a>
+                
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="languageList">
+                    <a class="dropdown-item" href="/">English</a>
+                </div>
+            </div>
+            {{ /if }}
+            
+        </div>
+    </div>
+</div>

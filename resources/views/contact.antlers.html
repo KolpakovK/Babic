@@ -1,0 +1,22 @@
+{{ if collection=="pages" }}
+{{ lang = "en" }}
+{{ else }}
+{{ lang = "hr" }}
+{{ /if }}
+
+{{ partial:partials/nav lang="lang" }}
+
+<!-- hero -->
+<div class="container-fluid hero" style="background-image: url('{{ hero_banner }}');">
+    <div class="row align-items-center py-10">
+        <div class="col-md-6 offset-md-3">
+            <h1 class="text-center display-1 text-white  has-anim rotate-anim">
+                {{ hero_title }}
+            </h1>
+        </div>
+    </div>
+</div>
+
+{{ partial:partials/contactus }}
+
+{{ partial:partials/footer lang="lang" }}

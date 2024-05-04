@@ -1,6 +1,6 @@
 @font-face {
     font-family: "iconmoon";
-    src: url(/fonts/icomoon.woff?c03b1eebe07e879525e2b453958b6663);
+    src: url(icomoon.woff);
 }
 
 p,a,span{
@@ -80,7 +80,6 @@ p,a,span{
 }
 
 .qoute{
-    width: -moz-fit-content;
     width: fit-content;
 }
 
@@ -104,7 +103,7 @@ p,a,span{
 .plants-on-sides:before{
     content: " ";
     display: block;
-    background-image: url(/images/Leftplants.png?f3abfc84186ffe67d903f3265a49383c);
+    background-image: url('../source/Leftplants.png');
     background-position: center right;
     background-size: cover;
     position: absolute;
@@ -116,14 +115,14 @@ p,a,span{
 }
 
 .plants-on-sides.plants-2:before{
-    background-image: url(/images/LeftPlants2.png?94a1a320cfe1dcc39f7613770dc1fe0b);
+    background-image: url('../source/LeftPlants2.png');
     opacity: 0.2;
 }
 
 .plants-on-sides:after{
     content: " ";
     display: block;
-    background-image: url(/images/Rightplants.png?01fc3fa3c06236bd63e5cc1b469d259c);
+    background-image: url('../source/Rightplants.png');
     background-position: center left;
     background-size: cover;
     position: absolute;
@@ -135,7 +134,7 @@ p,a,span{
 }
 
 .plants-on-sides.plants-2:after{
-    background-image: url(/images/RightPlants2.png?f0888e02f34351f6019ee73830d88a60);
+    background-image: url('../source/RightPlants2.png');
     opacity: 0.2;
 }
 
@@ -168,7 +167,7 @@ p,a,span{
 .quote-background::before,.quote-background::after{
     content: " ";
     display: block;
-    background-image: url(/images/quote.png?3ef5ba5ba3536c916ecc8829c61daef5);
+    background-image: url('../source/quote.png');
     position: absolute;
     width: 80px;
     height: 50px;
@@ -240,7 +239,6 @@ p,a,span{
     }
 
     .header > div > div {
-        width: -moz-fit-content !important;
         width: fit-content !important;
     }
 
